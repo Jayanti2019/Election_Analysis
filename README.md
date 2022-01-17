@@ -48,8 +48,10 @@ Additional data shows that
   - Denver county which received 82.8% of the toal votes and 306,055 number of votes.
 
 ## Election-Audit Summary
-How can we apply the same code to analyze any elections for Colorado Election Board
-I am going to take an example of County election analysis here:
+How can we apply the same code to analyze any elections for Colorado Election Board.
+
+### Example1:
+
 - We are defining county_list as a list and this list populated with different county names in a for loop
   - List definition 
   -  #1: Create a county list and county votes dictionary.
@@ -75,6 +77,8 @@ I am going to take an example of County election analysis here:
             # Add the candidate name to the candidate list.
             candidate_options.append(candidate_name)
             
+  ### Example2:
+   
    - Here votes in each county are being counted. Again this is scalable code. We do not have to make any changes to the script evne if data set has more counties in it.
    -         if county_name not in county_list:
 
@@ -85,23 +89,25 @@ I am going to take an example of County election analysis here:
             county_votes[county_name] = 0
 
 
-        # 5: Add a vote to that county's vote count.
+         5: Add a vote to that county's vote count.
         county_votes[county_name] += 1
         
+   ### Example3:
+   
    - Here for each county, script is calculating the percentage of the vote and printing results to terminal
    -  for county_name in county_votes:
 
-        # 6b: Retrieve the county vote count.
+         6b: Retrieve the county vote count.
         cvotes = county_votes.get(county_name)
 
-        # 6c: Calculate the percentage of votes for the county.
+         6c: Calculate the percentage of votes for the county.
         cvote_percentage = float(cvotes) / float(total_votes) * 100
         county_results = (
             f"{county_name}: {cvote_percentage:.1f}% ({cvotes:,})\n")
 
-         # 6d: Print the county results to the terminal.
+          6d: Print the county results to the terminal.
         print(county_results)
-         # 6e: Save the county votes to a text file.
+          6e: Save the county votes to a text file.
         txt_file.write(county_results)
   - in the code above Results for each county are saved to a text file for the convience of Colorado Election Board.
 
